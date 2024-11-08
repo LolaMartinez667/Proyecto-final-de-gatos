@@ -9,12 +9,8 @@ class CatBase(BaseModel):
 class CatCreate(CatBase):
     pass
 
-class Cat(BaseModel):
+class Cat(CatBase):
     id: int
-    name: str
-    age: int
-    breed: str
-    personality: str
 
     class Config:
-        from_attributes = True 
+        from_attributes = True

@@ -6,11 +6,11 @@ from server.dependencies import get_db
 
 router = APIRouter()
 
-@router.get("/cats/", response_model=list[Cat])
+@router.get("/", response_model=list[Cat])
 def read_cats(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
     cats = get_cats(db, skip=skip, limit=limit)
     return cats
 
-@router.post("/cats/", response_model=Cat)
+@router.post("/", response_model=Cat)
 def create_cat(cat: CatCreate, db: Session = Depends(get_db)):
     return create_cat(db=db, cat=cat) 
